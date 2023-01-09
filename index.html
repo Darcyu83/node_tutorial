@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <body>
+    <ul>
+      <li class="data" data-id="1" data-user-job="programmer">Mathew</li>
+      <li class="data" data-id="2" data-user-job="backend">John</li>
+      <li class="data" data-id="2" data-user-job="designer">Daisey</li>
+    </ul>
+  </body>
+
+  <script>
+    console.log(
+      "%c Start with color console",
+      "background-color: teal; color: white"
+    );
+
+    // get async await
+    // (async () => {
+    //   try {
+    //     const result = await axios.get("https://www.zerocho.com/api/get");
+
+    //     console.log(result.data); // {}
+    //   } catch (error) {
+    //     console.error(error);
+    //   }
+    // })();
+
+    // post formData
+    // (async () => {
+    //   const formData = new FormData();
+    //   formData.append("name", "react developer");
+    //   formData.append("birth", 1983);
+    //   formData.append("purpose", "Recapitulating");
+
+    //   try {
+    //     const result = await axios.post(
+    //       "https://www.zerocho.com/api/post/formdata",
+    //       formData
+    //     );
+
+    //     console.log(
+    //       "%c post formData",
+    //       "background-color: teal; color: white",
+    //       result
+    //     );
+    //   } catch (error) {
+    //     console.error(error);
+    //   }
+    // })();
+
+    const lis = document.getElementsByTagName("li");
+
+    for (let i = 0; i < lis.length; i++) {
+      console.log(lis[i].dataset);
+    }
+  </script>
+</html>
