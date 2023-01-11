@@ -50,6 +50,19 @@ app.use(bodyParser.text());
 
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
+/**
+쿠키 추가
+res.cookie('name', 'zerocho', {
+  expires: new Date(Date.now() + 900000),
+  httpOnly: true,
+  secure: true,
+});
+
+쿠키 삭제
+res.clearCookie('name', 'zerocho', { httpOnly: true, secure: true });
+
+*/
+
 app.use(
   session({
     resave: false,
