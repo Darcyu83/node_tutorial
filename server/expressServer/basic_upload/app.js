@@ -44,9 +44,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // body-parser
-const bodyParser = require("body-parser");
-app.use(bodyParser.raw());
-app.use(bodyParser.text());
+// const bodyParser = require("body-parser");
+// app.use(bodyParser.raw());
+// app.use(bodyParser.text());
 
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
@@ -71,6 +71,7 @@ app.use(
     cookie: {
       httpOnly: true,
       secure: false,
+      maxAge: 1000 * 60 * 2,
     },
 
     name: "session-cookie",
@@ -93,6 +94,9 @@ app.get(
   "/",
   (req, res, next) => {
     console.log(`[ app.js ]:: get("/")의 미들웨어 실행됨: `, res.locals.data);
+
+    console.log("middleware session info ===", req.session, res.session);
+
     next();
   },
   (req, res) => {
@@ -102,6 +106,8 @@ app.get(
     );
 
     // throw new Error("에러는 에러 처리 미들웨어로 갑니다.");
+
+    console.log("session info ===", req.session, res.session);
     res.sendFile(path.join(__dirname, "./index.html"));
   }
 );
